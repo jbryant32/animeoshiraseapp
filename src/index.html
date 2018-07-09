@@ -8,20 +8,30 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="msapplication-starturl" content="/">
   <meta name="theme-color" content="#f48c5b">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <link rel="mask-icon" href="assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link href="assets/images/covers/apple_splash_2048.png" sizes="2048x2732" rel="apple-touch-startup-image" />
+  <link href="assets/images/covers/apple_splash_1668.png" sizes="1668x2224" rel="apple-touch-startup-image" />
+  <link href="assets/images/covers/apple_splash_1536.png" sizes="1536x2048" rel="apple-touch-startup-image" >
+  <link href="assets/images/covers/apple_splash_1125.png" sizes="1125x2436" rel="apple-touch-startup-image" >
+  <link href="assets/images/covers/apple_splash_1242.png" sizes="1242x2208" rel="apple-touch-startup-image" >
+  <link href="assets/images/covers/apple_splash_750.png" sizes="750x1334" rel="apple-touch-startup-image" >
+  <link href="assets/images/covers/apple_splash_640.png" sizes="640x1136" rel="apple-touch-startup-image" >
+  <link href="assets/images/icons/apple-icon-152x152.png" sizes="152x152" rel="apple-touch-icon">
   <link rel="icon" sizes="192x192" href="./assets/images/icons/android-icon-192x192.png">
-  <link rel="shortcut icon" href="./assets/images/icons/favicon-16x16.png" />
-  <link rel="stylesheet" href="./assets/css/panel.css" />
+  <link rel="shortcut icon" href="/assets/images/icons/favicon-16x16.png" />
+  <link rel="stylesheet" href="/assets/css/panel.css" />
   <title>Anime Oshirase</title>
 
-  <link rel="manifest" href="./manifest.json">
+  <link rel="manifest" href="/manifest.json">
 
   <base href="/">
   <script>
-    screen.lockOrientation("portrait");
-    screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
-    screen.lockOrientationUniversal.lockOrientation("portrait");
-    screen.orientation.lock();   // webkit only
-
+    
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js')
         .then((registration) => {

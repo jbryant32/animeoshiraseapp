@@ -8,7 +8,7 @@ import {RouterModule} from '@angular/router';
 import { DetailsComponent } from './details/details.component'
 import {HttpServiceService} from './http-service.service'
 import {CommonModule} from '@angular/common';
-
+import {HandleServiceWorkerEvents} from './handle-service-worker-events';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +31,7 @@ import {CommonModule} from '@angular/common';
 
     ])
   ],
-  providers: [HttpServiceService],
+  providers: [HttpServiceService,HandleServiceWorkerEvents],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

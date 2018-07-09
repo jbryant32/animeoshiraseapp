@@ -22,7 +22,13 @@ export class HomePanelViews {
         var view = document.createElement("div");
         view.setAttribute("id", "movie-details");
         view.setAttribute("class", "movie-details-main-container")
-        view.innerHTML = '<iframe id="youtube-trailer" iframe width="320" height="188"   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+        view.innerHTML =
+         `
+            <iframe id="youtube-trailer" iframe width="320" height="188"   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="movie-details-summary-container">
+             <p></p>
+        </div>
+        `
         return view
     }
 }

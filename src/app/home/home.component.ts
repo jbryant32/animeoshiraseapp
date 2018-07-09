@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from '../http-service.service';
 import { HomePanelViews } from '../home-panel-views';
 import { HandlePanelSwitching } from "../handle-panel-switching";
+import {HandleServiceWorkerEvents} from '../handle-service-worker-events'
 import * as $ from "jquery";
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   private homepanelviews;
   private panelswitcher;
   private selectedId;
-  constructor(private ApiCaller: HttpServiceService) { }
+  constructor(private ApiCaller: HttpServiceService,private serviceWorkerEvents:HandleServiceWorkerEvents) { }
 
   ngOnInit() {
   }
