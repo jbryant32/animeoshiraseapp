@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "postinstall": "ng build --aot -prod",
+     
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng serve",
     "dev": "lite-server",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e" 
+    "e2e": "ng e2e" ,
+    "pwa": "ng build --prod && sw-precache --root=dist --config=precache-config.js"  
      
   },
   "private": true,

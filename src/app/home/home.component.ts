@@ -8,11 +8,11 @@ import { Moviemodel } from '../moviemodel';
 })
 export class HomeComponent implements OnInit {
 
-  public Movies:Moviemodel[];
+  public Movies:[Object];
   constructor(private ApiCaller: HttpServiceService) { }
 
   ngOnInit() {
-    this.ApiCaller.getAll( (movies:Moviemodel[]) => {
+    this.ApiCaller.getAll( (movies:[Object]) => {
       this.Movies = movies;
     });
   }

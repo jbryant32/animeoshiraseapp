@@ -5,34 +5,44 @@ import { Moviemodel } from './moviemodel';
 @Injectable()
 export class HttpServiceService {
 
-  private url: string = "https://apianimearato.azurewebsites.net/api/v1/get"
+  private url: string = "https://animeoshirasev2.azurewebsites.net/api/v1/allMovies"
   constructor(private _http: Http) { }
+  private moviesDatabase: [Object] = [{}];
 
-
-  getAll(callback: (movieData: Moviemodel[]) => void) {
+  getAll(callback: (movieData: [Object]) => void) {
+    this.moviesDatabase.pop();
     this._http.get(this.url).map((item) => {
 
       var json = item.json();
       return json;
 
-    }).subscribe((success: [object]) => {
-      var mapped = success.map((item) => {
-        var movie = new Moviemodel();
-        movie.poster_sm = new Image();
-        movie.poster_sm.src = `data:image/png;base64,${item["poster_sm"]}`;
-        movie.poster_lg = new Image();
-        movie.poster_lg.src = `data:image/png;base64,${item["poster_lg"]}`;
-        movie.poster_md = new Image();
-        movie.poster_md.src = `data:image/png;base64,${item["poster_md"]}`;
-        movie.poster_lgx = new Image();
-        movie.poster_lgx.src = `data:image/png;base64,${item["poster_lgx"]}`;
-        movie.theatricalRelease = item["theatricalRelease"];
-        movie.releaseDate = item["releaseDate"];
-        movie.title = item["title"];
+    }).subscribe((success: [any]) => {
+       success.map((item) => {
+        var movie = {
+          "theaterUrl": item["theaterUrl"],
+          "poster_sm": item["poster_sm"],
+          "poster_md": item["poster_md"],
+          "poster_lg": item["poster_lg"],
+          "poster_lgx": item["poster_lgx"],
+          "backdrop_sm": item["backdrop_sm"],
+          "backdrop_md": item["backdrop_md"],
+          "backdrop_lg": item["backdrop_lg"],
+          "subbed": item["subbed"],
+          "dubbed": item["dubbed"],
+          "trailer": item["trailer"],
+          "overview": item["overview"],
+          "releaseDate": item["releaseDate"],
+          "theatricalRelease": item["theatricalRelease"],
+          "showings": item["showings"],
+          "id": item["id"],
+          "title": item["title"]
+
+        }
+        this.moviesDatabase.push(movie);
         return movie;
       });
-      callback(mapped);
-      
+      callback(this.moviesDatabase);
+
 
     }, (error) => { console.log("failure") });
   }
