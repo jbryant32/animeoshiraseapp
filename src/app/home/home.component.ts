@@ -12,10 +12,14 @@ export class HomeComponent implements OnInit {
   constructor(private ApiCaller: HttpServiceService) { }
 
   ngOnInit() {
+    
+  }
+
+  ngAfterViewInit() {
     this.ApiCaller.getAll( (movies:[Object]) => {
       this.Movies = movies;
     });
-  }
+}
   public openDetails(e) {
     console.log()
     window.location.href = "details"

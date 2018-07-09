@@ -3,16 +3,14 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-     
     "ng": "ng",
     "start": "ng serve",
     "dev": "lite-server",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e" ,
-    "pwa": "ng build --prod && sw-precache --root=dist --config=precache-config.js"  
-     
+    "e2e": "ng e2e",
+    "pwa": "ng build --prod && sw-precache --root=dist --config=precache-config.js"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +25,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "body-scroll-lock": "^2.4.6",
     "core-js": "^2.4.1",
     "express": "^4.16.3",
     "font-awesome": "^4.7.0",

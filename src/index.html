@@ -1,15 +1,61 @@
 <!doctype html>
 <html lang="en" style="height: 100%;">
+
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="msapplication-starturl" content="/">
+  <meta name="theme-color" content="#f48c5b">
   <title>Anime Oshirase</title>
- 
 
+  <link rel="manifest" href="./manifest.json">
   <base href="/">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('SW registered');
+        })
+        .catch((err) => {
+          console.log('SW error', err);
+        });
+    }
+  </script>
+  <script>
+    targetElement.ontouchend = (e) => {
+      e.preventDefault();
+    };
+  </script>
+  <style>
+    html,
+    body {
 
-  
+      overflow: hidden;
+    }
+
+    body {
+      position: fixed;
+    }
+  </style>
+  <script>
+    // 1. Import the functions
+    const bodyScrollLock = require('body-scroll-lock');
+    const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+    const enableBodyScroll = bodyScrollLock.enableBodyScroll;
+
+    // 2. Get a target element that you want to persist scrolling for (such as a modal/lightbox/flyout/nav). 
+    const targetElement = document.querySelector("body");
+
+
+    // 3. ...in some event handler after showing the target element...disable body scroll
+    disableBodyScroll(targetElement);
+  </script>
 </head>
+
 <body style="height: 100%;">
   <app-root></app-root>
 </body>
+
 </html>

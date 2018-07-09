@@ -1,1 +1,29 @@
-<!doctype html><html lang="en" style="height: 100%;"><head><meta charset="utf-8"><title>Anime Oshirase</title><base href="/"><link href="styles.36aed5b3d6f2387ca05d.bundle.css" rel="stylesheet"/></head><body style="height: 100%;"><app-root></app-root><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.b6b2cd0d4c472ac3ac12.bundle.js"></script><script type="text/javascript" src="scripts.4280e09a3a658701f41f.bundle.js"></script><script type="text/javascript" src="main.08b6cc0212f61ee3beea.bundle.js"></script></body></html>
+<!doctype html><html lang="en" style="height: 100%;"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="msapplication-starturl" content="/"><meta name="theme-color" content="#f48c5b"><title>Anime Oshirase</title><link rel="manifest" href="./manifest.json"><base href="/"><script>if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('SW registered');
+        })
+        .catch((err) => {
+          console.log('SW error', err);
+        });
+    }</script><script>targetElement.ontouchend = (e) => {
+      e.preventDefault();
+    };</script><style>html,
+    body {
+
+      overflow: hidden;
+    }
+
+    body {
+      position: fixed;
+    }</style><script>// 1. Import the functions
+    const bodyScrollLock = require('body-scroll-lock');
+    const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+    const enableBodyScroll = bodyScrollLock.enableBodyScroll;
+
+    // 2. Get a target element that you want to persist scrolling for (such as a modal/lightbox/flyout/nav). 
+    const targetElement = document.querySelector("body");
+
+
+    // 3. ...in some event handler after showing the target element...disable body scroll
+    disableBodyScroll(targetElement);</script><link href="styles.133c9d9f41e2d44bc813.bundle.css" rel="stylesheet"/></head><body style="height: 100%;"><app-root></app-root><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.b6b2cd0d4c472ac3ac12.bundle.js"></script><script type="text/javascript" src="scripts.4280e09a3a658701f41f.bundle.js"></script><script type="text/javascript" src="main.883e3cf00990d09bc707.bundle.js"></script></body></html>

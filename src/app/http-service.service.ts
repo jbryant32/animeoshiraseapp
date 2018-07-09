@@ -20,10 +20,10 @@ export class HttpServiceService {
        success.map((item) => {
         var movie = {
           "theaterUrl": item["theaterUrl"],
-          "poster_sm": item["poster_sm"],
-          "poster_md": item["poster_md"],
-          "poster_lg": item["poster_lg"],
-          "poster_lgx": item["poster_lgx"],
+          "poster_sm": "https://image.tmdb.org/t/p/w200"+item["poster_sm"],
+          "poster_md": "https://image.tmdb.org/t/p/w300"+item["poster_md"],
+          "poster_lg": "https://image.tmdb.org/t/p/w400"+item["poster_lg"],
+          "poster_lgx": "https://image.tmdb.org/t/p/w500"+item["poster_lgx"],
           "backdrop_sm": item["backdrop_sm"],
           "backdrop_md": item["backdrop_md"],
           "backdrop_lg": item["backdrop_lg"],

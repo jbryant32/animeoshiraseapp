@@ -116,28 +116,20 @@
         <p>Sophie (Emily Mortimer) has an uneventful life at her late father's hat shop, but all that changes when she befriends wizard Howl (Christian Bale), who lives in a magical flying castle. However, the evil Witch of Waste (Lauren Bacall) takes issue with their budding relationship and casts a spell on young Sophie, which ages her prematurely. Now Howl must use all his magical talents to battle the jealous hag and return Sophie to her former youth and beauty.</p>
       </div>
     </div>
-    <div class="movie-row-tile-container">
-      <img src="assets/images/covers/Howls_moving_castle_cover.jpg" class="img-responsive" />
-      <div>
-        <h4>Howls moving castle</h4>
-      </div>
-      <div>
-        <span>Rating:Na</span>
-        <span></span>
-      </div>
-    </div>
-    <div class="movie-row-tile-container">
-      <img src="assets/images/covers/Howls_moving_castle_cover.jpg" class="img-responsive" />
-      <div>
-        <h4>Howls moving castle</h4>
-
-      </div>
-      <div>
-        <span>Rating:Na</span>
+    <div *ngFor="let movie of Movies">
+      <div class="movie-row-tile-container">
+        <img src={{movie.poster_sm}} class="img-responsive" />
+        <div>
+          <h4>{{movie['title']}}</h4>
+        </div>
+        <div>
+          <span>Rating:Na</span>
+          <span></span>
+        </div>
       </div>
     </div>
-  </div>
-
+     
+   
 
   <!-- Bottom navigation start  -->
   <div class="phone-navigation-bottm-container">
