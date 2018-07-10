@@ -21,17 +21,19 @@ export class HomeComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    // this.ApiCaller.getAll((movies: [Object]) => {
-    //   this.Movies = movies;
-    // });
+    this.ApiCaller.getAll((movies: [Object]) => {
+      this.Movies = movies;
+    });
     this.homepanelviews = new HomePanelViews();
     this.panelswitcher = new HandlePanelSwitching(this.homepanelviews)
   }
+  //event run on dom  when user selects a movie  
   public openDetails(e) {
-    this.selectedId = e.target.parentElement.parentElement.id;
+    this.selectedId = e.target.parentElement.id;
     var movieSrc;
     var movieSummary;
     var movieShowings =[];
+    //match
     this.Movies.forEach((movie) => {
       if (movie["id"]+"" === this.selectedId) {
         movieSrc = movie["trailer"];

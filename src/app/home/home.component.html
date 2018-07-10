@@ -1,22 +1,4 @@
-<link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-
-<link rel="mask-icon" href="assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
-
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-<meta name="viewport" content="width=device-width">
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="mobile-web-app-capable" content="yes">
-<link href="assets/images/covers/apple_splash_2048.png" sizes="2048x2732" rel="apple-touch-startup-image" />
-<link href="assets/images/covers/apple_splash_1668.png" sizes="1668x2224" rel="apple-touch-startup-image" />
-<link href="assets/images/covers/apple_splash_1536.png" sizes="1536x2048" rel="apple-touch-startup-image" />
-<link href="assets/images/covers/apple_splash_1125.png" sizes="1125x2436" rel="apple-touch-startup-image" />
-<link href="assets/images/covers/apple_splash_1242.png" sizes="1242x2208" rel="apple-touch-startup-image" />
-<link href="assets/images/covers/apple_splash_750.png" sizes="750x1334" rel="apple-touch-startup-image" />
-<link href="assets/images/covers/apple_splash_640.png" sizes="640x1136" rel="apple-touch-startup-image" />
+ 
 
 <!-- <script src="/node_modules/jquery/dist/jquery.slim.js"></script> -->
 
@@ -106,7 +88,10 @@
       <span>AnimeOsihrase</span>
     </div>
   </div>
-
+<div class="display-selection-main-container" >
+  <span id="select-coming-soon"><a onclick="slideLeft()">Coming Soon</a> </span><span id="select-in-theater"><a onclick="slideRight()" >In Theaters Now</a></span>
+</div>
+<div id="selection-highlighter" class="display-selection-highlighter"></div>
   <div class="movie-tile-main-container">
     <div class="banner-container">
       <div class="banner-row">
@@ -117,16 +102,16 @@
         <p>Produced by Wit Studio in cooperation with Production IG, the “Attack on Titan” (“Shingeki no Kyojin” in Japanese) anime series is adapted from the New York Times best-selling manga series by Hajime Isayama about the last of humanity fighting to survive against man-eating giants called Titans. To date, there are a total of 25 volumes in the manga series with an estimated 74M+ copies in print around the world.</p>
       </div>
     </div>
-    <div *ngFor="let movie of Movies">
+    <div *ngFor="let movie of Movies" (click)="openDetails($event)">
       <div class="movie-row-tile-container" data-id={{movie.id}}  >
-        <div>
-            <img src={{movie.poster_sm}} class="img-responsive" (click)="openDetails($event)" />
+        <div data-id={{movie.id}} >
+            <img src={{movie.poster_sm}} class="img-responsive"   />
         </div>
         
-        <div>
+        <div data-id={{movie.id}}>
           <h4>{{movie['title']}}</h4>
         </div>
-        <div>
+        <div data-id={{movie.id}} >
           <span>Rating:Na</span>
           <span></span>
         </div>

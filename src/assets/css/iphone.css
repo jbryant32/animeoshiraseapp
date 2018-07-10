@@ -3,6 +3,12 @@
      width: 100%;
      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  }
+ a{
+     color: inherit!important;
+    text-decoration: none!important;
+    text-decoration-line: none!important;
+    text-decoration-color: inherit!important;
+ }
  .main-container{
   
     max-height: 1024px;
@@ -18,8 +24,7 @@
     width: 100%;
     height: 86%;
     overflow-y: scroll;
-     
-    padding-top: 20px;
+    padding-bottom: 70px;
     
 }
 .movie-row-tile-container{
@@ -28,15 +33,21 @@
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 10px;
-    box-shadow: 1px 1px lightgrey;
+    border: lightgray solid thin;
+
 
 
 }
 .movie-row-tile-container div:nth-of-type(1){
     height: 248.6px;
     max-height: 249px;
+    min-height: 248.6px;
     background-color: white;
     overflow-y: hidden;
+    text-align: center!important;
+}
+.movie-row-tile-container div:nth-of-type(1) img{
+    display: inline!important;
 }
 .movie-row-tile-container div:nth-of-type(2) {
     padding-left: 5px;
@@ -89,14 +100,37 @@
     padding-top: 5px;
     color: #464646;
  }
+ .display-selection-main-container{
+    background-color: #eee;
+ }
+ .display-selection-main-container span{
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    padding: 0 0 10px 0;
+ }
+ .display-selection-main-container span:hover{
+    color: black;
+    font-weight: bold;
+ }
+ .display-selection-highlighter{
+    background-color: #adcce6;
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 4px;
+    z-index: 1;
+    transition: left 1s;
+     
+ }
  .phone-navigation-bottm-container{
     
     position: absolute;
     width: 100%;
     height: auto;
-    min-height: 55px;
     bottom: 0%;
     background-color: #eee;
+    border-top: gray solid thin;
 
  }
  .phone-navigation-row{
@@ -130,19 +164,19 @@
     font-size: 3vw;
 
  }
- .phone-navigation-row div:hover{
+ .phone-navigation-row div:active{
      color: white;
      
  }
- .phone-navigation-row   div:hover::after{
-     content: "";
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     left: 0;
-     top: 0%;
-     z-index: -1;
-     background-color: #adcce6;
+ .phone-navigation-row div:active::after{
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    left: -10%;
+    top: 0%;
+    z-index: -1;
+    background-color: #adcce6;
     
  }
  .phone-navigation-bottm-container svg{
@@ -158,6 +192,9 @@
     text-align: center;
     margin-bottom: 20px;
     position: relative;
+     
+    border-bottom: solid thin;
+    border-bottom-color: lightgray;
 
 }
 .banner-container img{
@@ -168,11 +205,14 @@
     height: auto;
 }
 .sub-container-header{
-  
+    padding-top: 10px;
     width: 100%;
     height: 100px;
     background-color: white;
  
+}
+.sub-container-header h4{
+    margin-top: 0;
 }
 .sub-container-header p{
     margin: 0 0 10px;
