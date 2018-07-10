@@ -21,27 +21,35 @@ export class HomeComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.ApiCaller.getAll((movies: [Object]) => {
-      this.Movies = movies;
-    });
+    // this.ApiCaller.getAll((movies: [Object]) => {
+    //   this.Movies = movies;
+    // });
     this.homepanelviews = new HomePanelViews();
     this.panelswitcher = new HandlePanelSwitching(this.homepanelviews)
   }
   public openDetails(e) {
-    this.selectedId = e.target.parentElement.id;
+    this.selectedId = e.target.parentElement.parentElement.id;
     var movieSrc;
+    var movieSummary;
+    var movieShowings =[];
     this.Movies.forEach((movie) => {
-      console.log(movie);
       if (movie["id"]+"" === this.selectedId) {
         movieSrc = movie["trailer"];
-        console.log(movieSrc);
-      }
+        movieSummary = movie["overview"]
+        movieShowings = movie["showings"]
+        console.log(movie);
+       }
 
     })
-    console.log(e.target.parentElement.id);
+     
     this.panelswitcher.openPanel("details");
     document.getElementById("youtube-trailer").setAttribute("src", `https://www.youtube.com/embed/${movieSrc}`)
-
+    document.getElementById("movie-details-summary").getElementsByTagName("p")[0].innerText = movieSummary;
+    movieShowings.forEach((showing)=>{
+      var elem = document.createElement("div");
+      elem.innerText = showing;
+      document.getElementById("showtimes-container").appendChild(elem)
+    })
   }
   public closeDetails() {
     this.panelswitcher.closeDetails();

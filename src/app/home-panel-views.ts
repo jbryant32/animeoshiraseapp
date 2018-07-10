@@ -25,7 +25,11 @@ export class HomePanelViews {
         view.innerHTML =
          `
             <iframe id="youtube-trailer" iframe width="320" height="188"   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <div class="movie-details-summary-container">
+        <div id="movie-details-summary" class="movie-details-summary-container">
+            <button><i class="fas fa-film"></i>Theater</button>
+            <div id="showtimes-container" class="showtimes-container">
+            
+            </div>
              <p></p>
         </div>
         `

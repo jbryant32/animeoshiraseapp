@@ -110,16 +110,19 @@
   <div class="movie-tile-main-container">
     <div class="banner-container">
       <div class="banner-row">
-        <img src="assets/images/covers/Howls_moving_castle_cover.jpg" class="" />
+        <img src="assets/images/movie poster/AttackOntitanBanner.jpg" class="" />
       </div>
       <div class="sub-container-header">
-        <h4>Howls moving castle</h4>
-        <p>Sophie (Emily Mortimer) has an uneventful life at her late father's hat shop, but all that changes when she befriends wizard Howl (Christian Bale), who lives in a magical flying castle. However, the evil Witch of Waste (Lauren Bacall) takes issue with their budding relationship and casts a spell on young Sophie, which ages her prematurely. Now Howl must use all his magical talents to battle the jealous hag and return Sophie to her former youth and beauty.</p>
+        <h4>Attack on Titan Season 2 Movie: Roar of Awakening</h4>
+        <p>Produced by Wit Studio in cooperation with Production IG, the “Attack on Titan” (“Shingeki no Kyojin” in Japanese) anime series is adapted from the New York Times best-selling manga series by Hajime Isayama about the last of humanity fighting to survive against man-eating giants called Titans. To date, there are a total of 25 volumes in the manga series with an estimated 74M+ copies in print around the world.</p>
       </div>
     </div>
     <div *ngFor="let movie of Movies">
       <div class="movie-row-tile-container" data-id={{movie.id}}  >
-        <img src={{movie.poster_sm}} class="img-responsive" (click)="openDetails($event)" />
+        <div>
+            <img src={{movie.poster_sm}} class="img-responsive" (click)="openDetails($event)" />
+        </div>
+        
         <div>
           <h4>{{movie['title']}}</h4>
         </div>

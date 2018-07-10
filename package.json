@@ -4,9 +4,9 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --prod",
+    "start": "ng serve",
     "dev": "lite-server",
-    "http":"http-server ./dist",
+    "http": "http-server ./dist",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
