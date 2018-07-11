@@ -22,9 +22,9 @@
   
 .movie-tile-main-container{
     width: 100%;
-    height: 86%;
+    height: 100%;
     overflow-y: scroll;
-    padding-bottom: 70px;
+   
     
 }
 .movie-row-tile-container{
@@ -77,6 +77,12 @@
    
 
 }
+.movies-displayed-container{
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 70px;
+}
 .movie-tile-heading{
 
 }
@@ -104,7 +110,7 @@
     background-color: #eee;
  }
  .display-selection-main-container span{
-    width: 50%;
+    width: 49%;
     display: inline-block;
     text-align: center;
     padding: 0 0 10px 0;
@@ -125,7 +131,7 @@
  }
  .phone-navigation-bottm-container{
     
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: auto;
     bottom: 0%;
@@ -156,7 +162,8 @@
     z-index: 1;
 
 
- }
+
+}
  .phone-navigation-row svg{
     font-size: 6vw;
  }
@@ -224,4 +231,22 @@
     /* height: 500px; */
     width: 100%;
     display: block;
+}
+
+.category-slide-main-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#in-theaters{
+    left: -100%;
+    transition: left 1s;
+}
+#in-theaters h1,h2,h3{
+text-align: center
+}
+#coming-soon{
+    left: 0;
+    transition: left 1s;
 }

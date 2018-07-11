@@ -1,148 +1,85 @@
- 
-
-<!-- <script src="/node_modules/jquery/dist/jquery.slim.js"></script> -->
-
-
-<!-- <div class="container table-iphone">
-  <!-- <div class="tile-container-row">
-   
-    <div *ngFor="let movie of Movies"   (click)="openDetails(event)" class="  tile-parent">
-      <div class="tile-image-container">
-        <img src={{movie.poster_sm.src}} class="img-responsive" />
-
-      </div>
-      <div class="tile-subheader-container">
-
-
-        <div class="tile-subheader-title">{{movie.title}}</div>
-        <br />
-        <div class="tite-subheader-date">{{movie.releaseDate}}</div>
-
-      </div>
-     
-    </div> -->
-<!-- <div (click)="openDetails(event)" class="  tile-parent">
-      <div class="tile-image-container">
-        <img src="assets/images/covers/Howls_moving_castle_cover.jpg" class="img-responsive" />
-
-      </div>
-      <div class="tile-subheader-container">
-
-
-        <div class="tile-subheader-title">Howls Moving Castle</div>
-        <br />
-        <div class="tite-subheader-date">12-15-19</div>
-
-      </div>
-
-
-
-
-    </div>
-    <div (click)="openDetails(event)" class="  tile-parent">
-      <div class="tile-image-container">
-        <img src="assets/images/covers/Howls_moving_castle_cover.jpg" class="img-responsive" />
-
-      </div>
-      <div class="tile-subheader-container">
-
-
-        <div class="tile-subheader-title">Howls Moving Castle</div>
-        <br />
-        <div class="tite-subheader-date">12-15-19</div>
-
-      </div>
-
-
-
-
-    </div>
-    <div (click)="openDetails(event)" class="  tile-parent">
-      <div class="tile-image-container">
-        <img src="assets/images/covers/Howls_moving_castle_cover.jpg" class="img-responsive" />
-
-      </div>
-      <div class="tile-subheader-container">
-
-
-        <div class="tile-subheader-title">Howls Moving Castle</div>
-        <br />
-        <div class="tite-subheader-date">12-15-19</div>
-
-      </div>
-
-
-
-
-    </div> -->
-<!-- <hr />
-  </div>
-
-</div> -->
-
-
-<div id ="main-container" class="main-container">
+<div id="main-container" class="main-container">
   <div class="phone-navigation-top-container">
     <div class="logo"></div>
     <div class="phone-navigation-top-text-header">
       <span>AnimeOsihrase</span>
     </div>
   </div>
-<div class="display-selection-main-container" >
-  <span id="select-coming-soon"><a onclick="slideLeft()">Coming Soon</a> </span><span id="select-in-theater"><a onclick="slideRight()" >In Theaters Now</a></span>
-</div>
-<div id="selection-highlighter" class="display-selection-highlighter"></div>
+  <div class="display-selection-main-container">
+    <span id="select-coming-soon">
+      <a onclick="slideLeft()">Coming Soon</a>
+    </span>
+    <span id="select-in-theater">
+      <a onclick="slideRight()">In Theaters Now</a>
+    </span>
+  </div>
+  <div id="selection-highlighter" class="display-selection-highlighter"></div>
+
   <div class="movie-tile-main-container">
-    <div class="banner-container">
-      <div class="banner-row">
-        <img src="assets/images/movie poster/AttackOntitanBanner.jpg" class="" />
+    <div id="coming-soon" class="category-slide-main-container">
+
+      <div class="movies-displayed-container">
+        <div class="banner-container">
+          <div class="banner-row">
+            <img src="assets/images/movie poster/AttackOntitanBanner.jpg" class="" />
+          </div>
+          <div class="sub-container-header">
+            <h4>Attack on Titan Season 2 Movie: Roar of Awakening</h4>
+            <p>Produced by Wit Studio in cooperation with Production IG, the “Attack on Titan” (“Shingeki no Kyojin” in Japanese)
+              anime series is adapted from the New York Times best-selling manga series by Hajime Isayama about the last
+              of humanity fighting to survive against man-eating giants called Titans. To date, there are a total of 25 volumes
+              in the manga series with an estimated 74M+ copies in print around the world.</p>
+          </div>
+        </div>
+        <div *ngFor="let movie of Movies" (click)="openDetails($event)">
+          <div class="movie-row-tile-container" data-id={{movie.id}}>
+            <div data-id={{movie.id}}>
+              <img src={{movie.poster_sm}} class="img-responsive" />
+            </div>
+
+            <div data-id={{movie.id}}>
+              <h4>{{movie['title']}}</h4>
+            </div>
+            <div data-id={{movie.id}}>
+              <span>Rating:Na</span>
+              <span></span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="sub-container-header">
-        <h4>Attack on Titan Season 2 Movie: Roar of Awakening</h4>
-        <p>Produced by Wit Studio in cooperation with Production IG, the “Attack on Titan” (“Shingeki no Kyojin” in Japanese) anime series is adapted from the New York Times best-selling manga series by Hajime Isayama about the last of humanity fighting to survive against man-eating giants called Titans. To date, there are a total of 25 volumes in the manga series with an estimated 74M+ copies in print around the world.</p>
+
+      <!-- Bottom navigation start  -->
+      <div class="phone-navigation-bottm-container">
+        <div class="phone-navigation-row">
+
+          <div>
+            <i class="fas fa-user-circle"></i>
+            <br>
+            <span>Account</span>
+          </div>
+
+          <div>
+            <i class="fas fa-film"></i>
+            <br>
+            <span>Anime</span>
+          </div>
+
+          <div>
+            <i class="fas fa-home"> </i>
+            <br>
+            <span>Home</span>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div *ngFor="let movie of Movies" (click)="openDetails($event)">
-      <div class="movie-row-tile-container" data-id={{movie.id}}  >
-        <div data-id={{movie.id}} >
-            <img src={{movie.poster_sm}} class="img-responsive"   />
-        </div>
-        
-        <div data-id={{movie.id}}>
-          <h4>{{movie['title']}}</h4>
-        </div>
-        <div data-id={{movie.id}} >
-          <span>Rating:Na</span>
-          <span></span>
-        </div>
-      </div>
+    <div id="in-theaters" class="category-slide-main-container">
+      <h2>In Theaters</h2>
     </div>
-     
-   
-
-  <!-- Bottom navigation start  -->
-  <div class="phone-navigation-bottm-container">
-    <div class="phone-navigation-row">
-
-      <div>
-        <i class="fas fa-user-circle"></i>
-        <br>
-        <span>Account</span>
-      </div>
-
-      <div>
-        <i class="fas fa-film"></i>
-        <br>
-        <span>Anime</span>
-      </div>
-
-      <div>
-        <i class="fas fa-home"> </i>
-        <br>
-        <span>Home</span>
-      </div>
-    </div>
-
   </div>
 
+
+
+  <!-- movie title main container end -->
 </div>
+<!-- end main container -->
