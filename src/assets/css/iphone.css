@@ -68,6 +68,59 @@
     max-height: 25px;
     color: gray;
 }
+.in-theater-main-container{
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    overflow-y: scroll;
+    padding-bottom: 160px;
+}
+.movie-row-large-tile-container{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+    border-bottom: lightgrey solid;
+}
+.movie-row-large-tile-container img{
+    width:100%;
+
+}
+.movie-row-large-tile-container h3{
+    margin-top: 0;
+    text-align: left;
+    width: 100%;
+}
+.movie-row-large-tile-container span{
+    font-size: 1.1em;
+    margin-top: 5px;
+    /* margin-bottom: 40px; */
+    /* border-bottom: lightgrey solid thin; */
+    display: inline-block;
+    width: 100%;
+
+}
+.movie-row-large-tile-container div:nth-of-type(1){
+
+}
+/* container for sub heading */
+.movie-row-large-tile-container div div{
+    padding: 10px 0 10px 5px;
+   background-color: white;
+    width: 100%;
+}
+.movie-row-large-tile-container div:nth-of-type(2) div{
+   
+    
+}
+.movie-row-large-tile-container div:nth-of-type(3){
+  
+}
+.movie-row-large-tile-container div:nth-of-type(4){
+    
+}
+.movie-row-large-tile-container div:nth-of-type(5){
+    
+}
 .movie-row-tile-container h4{
     white-space: nowrap;
     overflow-x: hidden;
@@ -81,7 +134,7 @@
     overflow-y: scroll;
     width: 100%;
     height: 100%;
-    padding-bottom: 70px;
+    padding-bottom: 170px;
 }
 .movie-tile-heading{
 

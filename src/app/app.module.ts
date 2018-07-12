@@ -9,6 +9,9 @@ import { DetailsComponent } from './details/details.component'
 import {HttpServiceService} from './http-service.service'
 import {CommonModule} from '@angular/common';
 import {HandleServiceWorkerEvents} from './handle-service-worker-events';
+import {HandlePanelSwitching} from './handle-panel-switching';
+import {HomePanelViews} from './home-panel-views';
+import {InTheatersDataService} from './in-theaters-data.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,8 @@ import {HandleServiceWorkerEvents} from './handle-service-worker-events';
 
     ])
   ],
-  providers: [HttpServiceService,HandleServiceWorkerEvents],
+  providers: [HttpServiceService,HandleServiceWorkerEvents
+    ,HandlePanelSwitching,HomePanelViews,InTheatersDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

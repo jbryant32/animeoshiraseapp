@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from '../http-service.service';
 import { HomePanelViews } from '../home-panel-views';
 import { HandlePanelSwitching } from "../handle-panel-switching";
-import {HandleServiceWorkerEvents} from '../handle-service-worker-events'
+import { HandleServiceWorkerEvents } from '../handle-service-worker-events'
 import * as $ from "jquery";
+import { InTheatersDataService } from '../in-theaters-data.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,48 +13,34 @@ import * as $ from "jquery";
 export class HomeComponent implements OnInit {
 
   public Movies: [Object];
-  private homepanelviews;
-  private panelswitcher;
+  public Intheaters: Object[];
+
   private selectedId;
-  constructor(private ApiCaller: HttpServiceService,private serviceWorkerEvents:HandleServiceWorkerEvents) { }
+  constructor(private ApiCaller: HttpServiceService,
+    private serviceWorkerEvents: HandleServiceWorkerEvents,
+    private homepanelviews: HomePanelViews,
+    private panelswitcher: HandlePanelSwitching,
+    private inTheatersService:InTheatersDataService
+  ) { }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
+    
     this.ApiCaller.getAll((movies: [Object]) => {
       this.Movies = movies;
+      this.homepanelviews.setMovies(this.Movies);
+      this.Intheaters = this.inTheatersService.getInTheaters(this.Movies);
     });
-    this.homepanelviews = new HomePanelViews();
-    this.panelswitcher = new HandlePanelSwitching(this.homepanelviews)
+
   }
   //event run on dom  when user selects a movie  
   public openDetails(e) {
-    this.selectedId = e.target.parentElement.id;
-    var movieSrc;
-    var movieSummary;
-    var movieShowings =[];
-    //match
-    this.Movies.forEach((movie) => {
-      if (movie["id"]+"" === this.selectedId) {
-        movieSrc = movie["trailer"];
-        movieSummary = movie["overview"]
-        movieShowings = movie["showings"]
-        console.log(movie);
-       }
-
-    })
-     
-    this.panelswitcher.openPanel("details");
-    document.getElementById("youtube-trailer").setAttribute("src", `https://www.youtube.com/embed/${movieSrc}`)
-    document.getElementById("movie-details-summary").getElementsByTagName("p")[0].innerText = movieSummary;
-    movieShowings.forEach((showing)=>{
-      var elem = document.createElement("div");
-      elem.innerText = showing;
-      document.getElementById("showtimes-container").appendChild(elem)
-    })
+    this.homepanelviews.openPanel("details",e.target.parentElement.id);
+    
   }
   public closeDetails() {
-    this.panelswitcher.closeDetails();
+    this.panelswitcher.closePanel();
   }
 }
