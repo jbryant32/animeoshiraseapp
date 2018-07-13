@@ -290,9 +290,17 @@
     position: absolute;
     width: 100%;
     height: 100%;
-}
+    background-color: whitesmoke;
 
+}
+.theater-view-main-container{
+    position: absolute;
+    z-index: 3;
+    background-color: red;
+    top: 0;
+}
 #in-theaters{
+    top: 0%;
     left: -100%;
     transition: left 1s;
 }

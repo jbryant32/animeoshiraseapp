@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpServiceService } from '../http-service.service';
-import { HomePanelViews } from '../home-panel-views';
-import { HandlePanelSwitching } from "../handle-panel-switching";
 import { HandleServiceWorkerEvents } from '../handle-service-worker-events'
 import * as $ from "jquery";
 import { InTheatersDataService } from '../in-theaters-data.service';
+import { LeftSlidePanelComponent } from '../panels/left-slide-panel/left-slide-panel.component';
+import { SharedDataService } from '../services/shared-data.service';
+import { NowInTheatersComponent } from '../home-subcomponents/now-in-theaters/now-in-theaters.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,35 +13,37 @@ import { InTheatersDataService } from '../in-theaters-data.service';
 })
 export class HomeComponent implements OnInit {
 
-  public Movies: [Object];
+  public Movies: Object[];
   public Intheaters: Object[];
-
-  private selectedId;
-  constructor(private ApiCaller: HttpServiceService,
-    private serviceWorkerEvents: HandleServiceWorkerEvents,
-    private homepanelviews: HomePanelViews,
-    private panelswitcher: HandlePanelSwitching,
-    private inTheatersService:InTheatersDataService
-  ) { }
+  public selectedMovie: Object;
+  
+  @ViewChild(LeftSlidePanelComponent) leftPanel: LeftSlidePanelComponent;
+  @ViewChild(NowInTheatersComponent) nowInTheaters:NowInTheatersComponent;
+  constructor(private httpService: HttpServiceService,
+    private sharedData: SharedDataService) { }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
-    
-    this.ApiCaller.getAll((movies: [Object]) => {
-      this.Movies = movies;
-      this.homepanelviews.setMovies(this.Movies);
-      this.Intheaters = this.inTheatersService.getInTheaters(this.Movies);
-    });
 
+    this.httpService.Init();
+    this.httpService.fetchMoviesCallBack = () => {
+      this.Movies = this.sharedData.getMovies();
+      console.log(this.Movies);
+    }
+  }
+  public slideInNowInTheaters(){
+    this.nowInTheaters.Init();
+    console.log("open now in theaters");
   }
   //event run on dom  when user selects a movie  
   public openDetails(e) {
-    this.homepanelviews.openPanel("details",e.target.parentElement.id);
-    
+    this.sharedData.setSelectedMovie(e.target.parentElement.id);
+    this.leftPanel.openPanel("details");
+
   }
   public closeDetails() {
-    this.panelswitcher.closePanel();
+    this.leftPanel.closePanel();
   }
 }

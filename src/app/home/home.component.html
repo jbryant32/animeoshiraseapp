@@ -7,10 +7,10 @@
   </div>
   <div class="display-selection-main-container">
     <span id="select-coming-soon">
-      <a onclick="slideLeft()">Coming Soon</a>
+      <a onclick="slideInHome()">Coming Soon</a>
     </span>
     <span id="select-in-theater">
-      <a onclick="slideRight()">In Theaters Now</a>
+      <a onclick="slideNowInTheaters()" (click)="slideInNowInTheaters($event)">In Theaters Now</a>
     </span>
   </div>
   <div id="selection-highlighter" class="display-selection-highlighter"></div>
@@ -47,7 +47,7 @@
           </div>
         </div>
       </div>
-
+      <app-now-in-theaters></app-now-in-theaters>
       <!-- Bottom navigation start  -->
       <div class="phone-navigation-bottm-container">
         <div class="phone-navigation-row">
@@ -73,40 +73,11 @@
 
       </div>
     </div>
-    <!-- Second Panel In Theaters -->
-    <div id="in-theaters" class="category-slide-main-container">
-      <h2>Now In Theaters</h2>
-      <div id="In-Theater-main" class="in-theater-main-container">
-        <div id="movies-display-in-theaters" class="movies-display-in-theaters-conatiner">
 
-          <div *ngFor="let movie of Intheaters" (click)="openDetails($event)" class="movie-row-large-tile-container" data-id={{movie.id}}>
-            <div data-id={{movie.id}}>
-              <img src={{movie.poster_lg}} class="img-responsive" />
-            </div>
-            <div>
-              <div data-id={{movie.id}}>
-                <h3>{{movie['title']}}</h3>
-              </div>
-              <div>
-                <span>Subtitles:&nbsp;{{movie['subbed']}}</span>
-
-                <span>English Dubbed:&nbsp;{{movie['subbed']}}</span>
-              </div>
-              <div data-id={{movie.id}}>
-                <span>Rating:Na</span>
-              </div>
-            </div>
-
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <!-- Second Panel In Theaters End -->
   </div>
 
 </div>
-
+<app-left-slide-panel></app-left-slide-panel>
 
 <!-- movie title main container end -->
 

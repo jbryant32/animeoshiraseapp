@@ -9,14 +9,21 @@ import { DetailsComponent } from './details/details.component'
 import {HttpServiceService} from './http-service.service'
 import {CommonModule} from '@angular/common';
 import {HandleServiceWorkerEvents} from './handle-service-worker-events';
-import {HandlePanelSwitching} from './handle-panel-switching';
-import {HomePanelViews} from './home-panel-views';
-import {InTheatersDataService} from './in-theaters-data.service'
+import {InTheatersDataService} from './in-theaters-data.service';
+import { LeftSlidePanelComponent } from './panels/left-slide-panel/left-slide-panel.component';
+import { SharedDataService } from './services/shared-data.service';
+import { MovieDetailsComponent } from './panel-components/movie-details/movie-details.component';
+import { TheaterInfoComponent } from './panel-components/theater-info/theater-info.component';
+import { NowInTheatersComponent } from './home-subcomponents/now-in-theaters/now-in-theaters.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailsComponent
+    DetailsComponent,
+    LeftSlidePanelComponent,
+    MovieDetailsComponent,
+    TheaterInfoComponent,
+    NowInTheatersComponent
   ],
   imports: [
     CommonModule,
@@ -26,16 +33,12 @@ import {InTheatersDataService} from './in-theaters-data.service'
       {
         path:'home',
         component:HomeComponent
-    },
-    {
-      path:'details',
-      component:DetailsComponent
-  }
+    } 
 
     ])
   ],
-  providers: [HttpServiceService,HandleServiceWorkerEvents
-    ,HandlePanelSwitching,HomePanelViews,InTheatersDataService],
+  providers: [HttpServiceService,HandleServiceWorkerEvents,
+    ,InTheatersDataService,SharedDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
