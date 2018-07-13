@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
-import { Moviemodel } from './moviemodel';
 import { SharedDataService } from './services/shared-data.service';
-import { promise } from '../../node_modules/protractor';
-import { PromiseType } from '../../node_modules/protractor/built/plugins';
+
 @Injectable()
 export class HttpServiceService {
 

@@ -11,5 +11,7 @@ export class TheaterInfoComponent implements OnInit {
 
   ngOnInit() {
   }
+  public Init() {
 
+  }
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { SharedDataService } from '../../services/shared-data.service';
 import { HomeComponent } from '../../home/home.component';
+import { LeftSlidePanelComponent } from '../../panels/left-slide-panel/left-slide-panel.component';
 
 @Component({
   selector: 'app-now-in-theaters',
@@ -10,14 +11,16 @@ import { HomeComponent } from '../../home/home.component';
 export class NowInTheatersComponent implements OnInit {
 
   public inTheaters: Object[] = [];
-  public noMoviesCurrentlyPlaying: boolean;
-
+  public noMoviesCurrentlyPlaying: Boolean;
+  
+  public leftPanel: LeftSlidePanelComponent;
   constructor(private sharedData: SharedDataService) { }
 
   ngOnInit() {
   }
 
-  public Init() {
+  public Init(leftPanel) {
+    this.leftPanel = leftPanel;
     this.inTheaters = [];
     this.sharedData.getMovies().forEach((movie) => {
 
@@ -38,5 +41,10 @@ export class NowInTheatersComponent implements OnInit {
     }
     console.log(this.inTheaters);
   }
+  public openDetails(e) {
+    console.log(e.target.parentElement.id)
+    this.sharedData.setSelectedMovie(e.target.parentElement.id);
+    this.leftPanel.openPanel("details");
 
+  }
 }

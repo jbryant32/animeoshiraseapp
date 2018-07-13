@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import * as $ from 'jquery';
 import { HomeComponent } from '../../home/home.component';
 import { SharedDataService } from '../../services/shared-data.service';
 import { MovieDetailsComponent } from '../../panel-components/movie-details/movie-details.component';
+import { TheaterInfoComponent } from '../../panel-components/theater-info/theater-info.component';
 @Component({
   selector: 'app-left-slide-panel',
   templateUrl: './left-slide-panel.component.html',
@@ -12,7 +13,7 @@ export class LeftSlidePanelComponent implements OnInit {
 
 
   private movies: Object[];
-  private selectedId: string;
+  private selectedId: String;
   private defaultMovie: Object = {
     "theaterUrl": "NA",
     "poster_sm": "https://image.tmdb.org/t/p/w200",
@@ -33,9 +34,9 @@ export class LeftSlidePanelComponent implements OnInit {
 
   };
   private selectedMovie: Object;
-  private showDetails: boolean;
+  private showDetails: Boolean;
   @ViewChild(MovieDetailsComponent) detailsView: MovieDetailsComponent;
- 
+  @ViewChild(TheaterInfoComponent) theaterView: TheaterInfoComponent;
   constructor(private sharedData: SharedDataService) { }
 
   ngOnInit() {

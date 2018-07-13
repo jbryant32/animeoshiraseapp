@@ -179,7 +179,7 @@
     width: 50%;
     height: 4px;
     z-index: 1;
-    transition: left 1s;
+    transition: left 0.5s;
      
  }
  .phone-navigation-bottm-container{
@@ -302,12 +302,12 @@
 #in-theaters{
     top: 0%;
     left: -100%;
-    transition: left 1s;
+    transition: left 0.5s;
 }
 #in-theaters h1,h2,h3{
 text-align: center
 }
 #coming-soon{
     left: 0;
-    transition: left 1s;
+    transition: left 0.5s;
 }

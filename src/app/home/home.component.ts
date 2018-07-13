@@ -1,8 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { HttpServiceService } from '../http-service.service';
-import { HandleServiceWorkerEvents } from '../handle-service-worker-events'
-import * as $ from "jquery";
-import { InTheatersDataService } from '../in-theaters-data.service';
 import { LeftSlidePanelComponent } from '../panels/left-slide-panel/left-slide-panel.component';
 import { SharedDataService } from '../services/shared-data.service';
 import { NowInTheatersComponent } from '../home-subcomponents/now-in-theaters/now-in-theaters.component';
@@ -33,8 +30,8 @@ export class HomeComponent implements OnInit {
       console.log(this.Movies);
     }
   }
-  public slideInNowInTheaters(){
-    this.nowInTheaters.Init();
+  public slideInNowInTheaters(e){
+    this.nowInTheaters.Init(this.leftPanel);
     console.log("open now in theaters");
   }
   //event run on dom  when user selects a movie  
