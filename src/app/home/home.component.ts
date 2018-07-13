@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
       console.log(this.Movies);
     }
   }
-  public slideInNowInTheaters(e){
-    this.nowInTheaters.Init(this.leftPanel);
+  public populateNowInTheaters(e){
+    this.nowInTheaters.Init(this.leftPanel);//reference to left panel need for users selecting a movie pulls out panel
     console.log("open now in theaters");
   }
   //event run on dom  when user selects a movie  

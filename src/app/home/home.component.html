@@ -5,12 +5,15 @@
       <span>AnimeOsihrase</span>
     </div>
   </div>
+  <div id="droid-navigation-main" class="droid-navigation-main-container">
+    <span>Account</span><span>Anime</span><span>Home</span>
+  </div>
   <div class="display-selection-main-container">
     <span id="select-coming-soon">
       <a onclick="slideInHome()">Coming Soon</a>
     </span>
     <span id="select-in-theater">
-      <a onclick="slideNowInTheaters()" (click)="slideInNowInTheaters($event)">In Theaters Now</a>
+      <a onclick="slideNowInTheaters()" (click)="populateNowInTheaters($event)">In Theaters Now</a>
     </span>
   </div>
   <div id="selection-highlighter" class="display-selection-highlighter"></div>
@@ -49,31 +52,32 @@
       </div>
       <app-now-in-theaters></app-now-in-theaters>
       <!-- Bottom navigation start  -->
-      <div class="phone-navigation-bottm-container">
-        <div class="phone-navigation-row">
 
-          <div>
-            <i class="fas fa-user-circle"></i>
-            <br>
-            <span>Account</span>
-          </div>
-
-          <div>
-            <i class="fas fa-film"></i>
-            <br>
-            <span>Anime</span>
-          </div>
-
-          <div>
-            <i class="fas fa-home"> </i>
-            <br>
-            <span>Home</span>
-          </div>
-        </div>
-
-      </div>
     </div>
 
+  </div>
+
+</div>
+<div class="phone-navigation-bottm-container">
+  <div class="phone-navigation-row">
+
+    <div>
+      <i class="fas fa-user-circle"></i>
+      <br>
+      <span>Account</span>
+    </div>
+
+    <div>
+      <i class="fas fa-film"></i>
+      <br>
+      <span>Anime</span>
+    </div>
+
+    <div>
+      <i class="fas fa-home"> </i>
+      <br>
+      <span>Home</span>
+    </div>
   </div>
 
 </div>

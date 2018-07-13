@@ -1,17 +1,28 @@
 
+console.log(navigator.userAgent)
 var highlighterForSelect = document.getElementById("selection-highlighter");
 var comingSoon = document.getElementById("coming-soon");
-var inTheaters = document.getElementById("in-theaters");
+var inTheaters = document.getElementById("in-theater");
+// if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+//     inTheaters.getElementsByTagName("a")[0].addEventListener("touchstart", () => { slideNowInTheaters();  console.log("touchstart") }, false)
+//     comingSoon.getElementsByTagName("a")[0].addEventListener("touchstart", () => {  slideInHome(); }, false)
+// }
+// else {
+//     inTheaters.getElementsByTagName("a")[0].addEventListener("click", () => { slideInHome() }, false)
+//     comingSoon.getElementsByTagName("a")[0].addEventListener("click", () => { slideNowInTheaters() }, false)
+// }
+
+
 function slideInHome() {
     highlighterForSelect.style.left = "0%";
     comingSoon.style.left = "0%";
-   
+
     console.log("coming soon");
 }
 
 function slideNowInTheaters() {
     highlighterForSelect.style.left = "50%";
-  
+
     comingSoon.style.left = "100%";
     console.log("in theaters");
 }

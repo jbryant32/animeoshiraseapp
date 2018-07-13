@@ -6,7 +6,7 @@
     max-width: 768px;
     height: 100%;
     width:100%;
-    overflow-y: hidden;
+  
     background-color: #f9f9f9;
     left: -100%;
     z-index: 3;
@@ -50,6 +50,7 @@
  }
  .movie-details-summary-container{
      overflow-y: scroll;
+     height: auto;
  }
  .movie-details-summary-container p{
     padding-left: 10px;
