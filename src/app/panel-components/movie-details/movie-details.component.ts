@@ -36,4 +36,8 @@ export class MovieDetailsComponent implements OnInit {
     document.getElementById("movie-details").style.display = "inherit";
 
   }
+  public onClose(){
+    document.getElementById("youtube-trailer")
+    .setAttribute("src","");
+  }
 }

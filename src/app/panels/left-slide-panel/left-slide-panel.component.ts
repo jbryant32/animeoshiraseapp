@@ -52,6 +52,7 @@ export class LeftSlidePanelComponent implements OnInit {
   public closePanel() {
     // this.hideDetailsView();
     console.log("close")
+    this.detailsView.onClose();
     $("#panel-main-container").animate({ "left": "-100%" }, 200, () => { })
   }
   private showDetailsView() {

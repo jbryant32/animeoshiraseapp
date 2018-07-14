@@ -17,7 +17,26 @@ export class SharedDataService {
     });
   }
   public getMovies(): Object[] {
-    return this.movies;
+    var moviesFiltered = this.movies.filter((movie)=>{
+      console.log("filter")
+      if(movie["releaseDate"] !== "01/01/2001")
+      {
+        console.log(movie)
+        return movie;
+      }
+     
+    })
+    return moviesFiltered;
+  }
+  public getComingSoon()
+  {
+    var moviesFiltered = this.movies.filter((movie)=>{
+      if(movie["releaseDate"] === "01/01/2001")
+      {
+        return movie;
+      }
+    })
+    return moviesFiltered;
   }
   public getSelectedMovie(){
     return this.selectedMovie;

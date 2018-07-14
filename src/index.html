@@ -13,6 +13,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
   <link rel="manifest" href="/manifest.json">
 
+
   <link rel="mask-icon" href="assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
   <link href="assets/images/covers/apple_splash_2048.png" sizes="2048x2732" rel="apple-touch-startup-image" />
   <link href="assets/images/covers/apple_splash_1668.png" sizes="1668x2224" rel="apple-touch-startup-image" />
@@ -25,34 +26,72 @@
   <link rel="icon" sizes="192x192" href="./assets/images/icons/android-icon-192x192.png">
   <link rel="shortcut icon" href="/assets/images/icons/favicon-16x16.png" />
   <link rel="stylesheet" href="/assets/css/panel.css" />
-   
+  <link rel="stylesheet" href="/src/assets/js/jquery-3.3.1.min.js" />
   <title>Anime Oshirase</title>
 
   <link rel="manifest" href="/manifest.json">
 
   <base href="/">
   <script>
-  if (/Android/i.test(navigator.userAgent)) {
-    console.log("android")
-    link  = document.createElement("link");
-    link.setAttribute("href","/assets/css/android.css")
-    link.setAttribute("rel","stylesheet")
-    document.getElementsByTagName("head")[0].appendChild(link);
-  }
-  if (/iPhone/i.test(navigator.userAgent)) {
-    link  = document.createElement("link");
-    link.setAttribute("href","/assets/css/iphone.css")
-    link.setAttribute("rel","stylesheet")
-    document.getElementsByTagName("head")[0].appendChild(link);
-  }
+    if (/iPhone/i.test(navigator.userAgent)) {
+      if (window.matchMedia('(display-mode: standalone)').matches) {
+        {
+          if (location.pathname === "/iphoneinstall") {
+            location.href = "/home";
+          }
+
+          console.log("Thank you for installing our app!");
+
+        }
+      }
+      else {
+        console.log(location.pathname);
+        if (location.pathname !== "/iphoneinstall") {
+          location.href = "/iphoneinstall";
+          console.log("not installed")
+        }
+      }
+    }
+    if (/Android/i.test(navigator.userAgent)) {
+      if (window.matchMedia('(display-mode: standalone)').matches) {
+        {
+          console.log("Thank you for installing our app!");
+          if (location.pathname === "/androidinstall") {
+            location.href = "/home";
+          }
+        }
+      }
+      else {
+        console.log(location.pathname);
+        if (location.pathname !== "/androidinstall") {
+          location.href = "/androidinstall";
+          console.log("not installed")
+        }
+      }
+    }
+  </script>
+  <script>
+    if (/Android/i.test(navigator.userAgent)) {
+      console.log("android")
+      link = document.createElement("link");
+      link.setAttribute("href", "/assets/css/android.css")
+      link.setAttribute("rel", "stylesheet")
+      document.getElementsByTagName("head")[0].appendChild(link);
+    }
+    if (/iPhone/i.test(navigator.userAgent)) {
+      link = document.createElement("link");
+      link.setAttribute("href", "/assets/css/iphone.css")
+      link.setAttribute("rel", "stylesheet")
+      document.getElementsByTagName("head")[0].appendChild(link);
+    }
   </script>
   <script>
     console.log()
 
-//portait
+    //portait
     if (window.innerHeight > window.innerWidth) {
       if (window.screen.width > 500) {
-       alert("Your Device is not supported")
+        alert("Your Device is not supported")
         window.location.host = "https://google.com"
       }
     }

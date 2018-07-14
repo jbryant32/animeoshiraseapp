@@ -12,6 +12,9 @@ import { LeftSlidePanelComponent } from './panels/left-slide-panel/left-slide-pa
 import { MovieDetailsComponent } from './panel-components/movie-details/movie-details.component';
 import { TheaterInfoComponent } from './panel-components/theater-info/theater-info.component';
 import { NowInTheatersComponent } from './home-subcomponents/now-in-theaters/now-in-theaters.component';
+import { IphoneInstallScreenComponent } from './iphone-install-screen/iphone-install-screen.component';
+import { AndroidInstallScreenComponent } from './android-install-screen/android-install-screen.component';
+import { BottomPanelComponent } from './panels/bottom-panel/bottom-panel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +22,10 @@ import { NowInTheatersComponent } from './home-subcomponents/now-in-theaters/now
     LeftSlidePanelComponent,
     MovieDetailsComponent,
     TheaterInfoComponent,
-    NowInTheatersComponent
+    NowInTheatersComponent,
+    IphoneInstallScreenComponent,
+    AndroidInstallScreenComponent,
+    BottomPanelComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +36,14 @@ import { NowInTheatersComponent } from './home-subcomponents/now-in-theaters/now
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path: 'iphoneinstall',
+        component: IphoneInstallScreenComponent
+      },  {
+
+        path: 'androidinstall',
+        component: AndroidInstallScreenComponent
       }
 
 

@@ -23,6 +23,15 @@ export class HttpServiceService {
 
     }).subscribe((success: [any]) => {
       success.map((item) => {
+     
+        if(item["showings"][0] === "09/09/1999"){
+         
+          item["showings"] =["See Theater Link For ShowTimes"]
+        }
+        if(item["releaseDate"] === "01/01/2001"){
+          console.log(item)
+          item["showings"] =["Coming Soon"]
+        }
         var movie = {
           "theaterUrl": item["theaterUrl"],
           "poster_sm": "https://image.tmdb.org/t/p/w200" + item["poster_sm"],
