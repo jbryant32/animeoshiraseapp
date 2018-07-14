@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule,DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,8 @@ import { NowInTheatersComponent } from './home-subcomponents/now-in-theaters/now
 import { IphoneInstallScreenComponent } from './iphone-install-screen/iphone-install-screen.component';
 import { AndroidInstallScreenComponent } from './android-install-screen/android-install-screen.component';
 import { BottomPanelComponent } from './panels/bottom-panel/bottom-panel.component';
+ 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,9 @@ import { BottomPanelComponent } from './panels/bottom-panel/bottom-panel.compone
     CommonModule,
     BrowserModule,
     HttpModule,
+    
     CustomModulesModule,
+    
     RouterModule.forRoot([
       {
         path: 'home',
@@ -49,6 +53,7 @@ import { BottomPanelComponent } from './panels/bottom-panel/bottom-panel.compone
 
     ])
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

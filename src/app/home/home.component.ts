@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     this.httpService.Init();
     this.httpService.fetchMoviesCallBack = () => {
       this.Movies = this.sharedData.getMovies();
-      console.log(this.Movies);
+     
     }
   }
   public populateNowInTheaters(e){

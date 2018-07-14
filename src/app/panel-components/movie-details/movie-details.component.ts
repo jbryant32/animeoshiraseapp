@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { BottomPanelComponent } from '../../panels/bottom-panel/bottom-panel.component';
 
 @Component({
   selector: 'app-movie-details',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-
+  @ViewChild(BottomPanelComponent) bottomPanel: BottomPanelComponent;
   constructor() { }
 
   ngOnInit() {
@@ -36,8 +37,17 @@ export class MovieDetailsComponent implements OnInit {
     document.getElementById("movie-details").style.display = "inherit";
 
   }
-  public onClose(){
+  //open iframe with theater url
+  openTheaterUrl(e) {
+    this.bottomPanel.openPanel();
+  }
+
+  //take care of any closing actions here 
+  //stops youtube video 
+  //closes bottom panel if open
+  public onClose() {
+    this.bottomPanel.closePanel();
     document.getElementById("youtube-trailer")
-    .setAttribute("src","");
+      .setAttribute("src", "");
   }
 }

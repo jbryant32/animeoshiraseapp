@@ -1,3 +1,13 @@
-<p>
-  bottom-panel works!
-</p>
+<div id="bottom-panel-main-container" class="bottom-panel-main-container">
+  <!-- Nav area start -->
+  <div id="panel-nav-container" class="panel-navigation-top-container">
+    <div id="nav-button" class="nav-button-container" (click)="closePanel()">
+      <i class="fas fa-times"></i>
+    </div>
+    <div id="panel-text-header" class="panel-navigation-top-text-header">
+    </div>
+  </div>
+  <!-- nav area end -->
+  <!--panel  content start area-->
+  <app-theater-info></app-theater-info>
+</div>
