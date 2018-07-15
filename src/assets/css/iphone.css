@@ -24,7 +24,7 @@ a{
    width: 100%;
    height: 100%;
    overflow-y: scroll;
-  
+   -webkit-overflow-scrolling: touch;
    
 }
 .movie-row-tile-container{
@@ -75,7 +75,7 @@ a{
 .movie-row-large-tile-container{
    width: 100%;
    height: 100%;
-   margin-bottom: 20px;
+   margin-bottom: 20px!important;
    border-bottom: lightgrey solid;
 }
 .movie-row-large-tile-container img{
@@ -160,7 +160,7 @@ a{
    background-color: #eee;
 }
 .display-selection-main-container span{
-   width: 49%;
+   width: 32%;
    display: inline-block;
    text-align: center;
    padding: 0 0 5px 0;
@@ -173,7 +173,7 @@ a{
    background-color: #adcce6;
    position: absolute;
    left: 0;
-   width: 50%;
+   width: 32%;
    height: 4px;
    z-index: 1;
    transition: left 0.5s;
@@ -304,11 +304,11 @@ a{
 #in-theaters h1,h2,h3{
 text-align: center
 }
-#coming-soon{
+#AtoZ{
    left: 0;
    transition: left 0.5s;
 }
-#coming-soon div{
+#AtoZ div{
    margin: auto;
 }
  /* Device specific */

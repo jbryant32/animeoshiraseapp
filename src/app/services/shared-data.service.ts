@@ -33,6 +33,7 @@ export class SharedDataService {
     var moviesFiltered = this.movies.filter((movie)=>{
       if(movie["releaseDate"] === "01/01/2001")
       {
+        console.log(movie)
         return movie;
       }
     })

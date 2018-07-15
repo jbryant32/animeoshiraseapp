@@ -8,18 +8,22 @@
   <div id="droid-navigation-main" class="droid-navigation-main-container">
     <span>Account</span><span>Anime</span><span>Home</span>
   </div>
+  <!-- Select category start -->
   <div class="display-selection-main-container">
-    <span id="select-coming-soon">
+    <span id="select-AtoZ">
       <a onclick="slideInHome()">A To Z</a>
     </span>
     <span id="select-in-theater">
       <a onclick="slideNowInTheaters()" (click)="populateNowInTheaters($event)">In Theaters Now</a>
     </span>
+    <span id="select-in-coming-soon">
+      <a onclick="slideComingSoon()" (click)="populateComingSoon($event)">Coming Soon</a>
+    </span>
   </div>
   <div id="selection-highlighter" class="display-selection-highlighter"></div>
-
+<!-- select area end -->
   <div class="movie-tile-main-container">
-    <div id="coming-soon" class="category-slide-main-container">
+    <div id="AtoZ" class="category-slide-main-container">
 
       <div class="movies-displayed-container">
         <div class="banner-container">
@@ -51,6 +55,7 @@
         </div>
       </div>
       <app-now-in-theaters></app-now-in-theaters>
+      <app-coming-soon></app-coming-soon>
       <!-- Bottom navigation start  -->
 
     </div>
@@ -61,19 +66,19 @@
 <div class="phone-navigation-bottm-container">
   <div class="phone-navigation-row">
 
-    <div>
+    <div id='account'>
       <i class="fas fa-user-circle"></i>
       <br>
       <span>Account</span>
     </div>
 
-    <div>
+    <div id="anime">
       <i class="fas fa-film"></i>
       <br>
       <span>Anime</span>
     </div>
 
-    <div>
+    <div id="home">
       <i class="fas fa-home"> </i>
       <br>
       <span>Home</span>

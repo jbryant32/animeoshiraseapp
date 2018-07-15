@@ -15,6 +15,8 @@ import { NowInTheatersComponent } from './home-subcomponents/now-in-theaters/now
 import { IphoneInstallScreenComponent } from './iphone-install-screen/iphone-install-screen.component';
 import { AndroidInstallScreenComponent } from './android-install-screen/android-install-screen.component';
 import { BottomPanelComponent } from './panels/bottom-panel/bottom-panel.component';
+import { ComingSoonComponent } from './home-subcomponents/coming-soon/coming-soon.component';
+import { AccountComponent } from './account/account.component';
  
 
 @NgModule({
@@ -27,7 +29,9 @@ import { BottomPanelComponent } from './panels/bottom-panel/bottom-panel.compone
     NowInTheatersComponent,
     IphoneInstallScreenComponent,
     AndroidInstallScreenComponent,
-    BottomPanelComponent
+    BottomPanelComponent,
+    ComingSoonComponent,
+    AccountComponent
   ],
   imports: [
     CommonModule,
@@ -40,6 +44,10 @@ import { BottomPanelComponent } from './panels/bottom-panel/bottom-panel.compone
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path:'account',
+        component:AccountComponent
       },
       {
         path: 'iphoneinstall',

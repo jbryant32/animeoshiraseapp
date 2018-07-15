@@ -27,7 +27,15 @@ export class TheaterInfoComponent implements OnInit {
     document.getElementById("site-loader").removeChild(document.getElementsByTagName('object')[0])
 
     $("#site-loader").html(`<object data="${url}" />`)
-    $("object").ready(()=>{$("object").css("width","100%").css("height","100%")});
+    $("object").ready(()=>{
+      $("object")
+    .css("width","100%")
+    .css("height","100%");
+    $("#site-loader")
+    .css("overflow-y","scroll")
+    .css("-webkit-overflow-scrolling","touch")
+     
+  });
     this.movieUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url+"?device=mobile");
     this.mainContainerStyle = "display:inherit;";
   }
