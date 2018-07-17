@@ -4,12 +4,15 @@ import { HomeComponent } from '../../home/home.component';
 import { SharedDataService } from '../../services/shared-data.service';
 import { MovieDetailsComponent } from '../../panel-components/movie-details/movie-details.component';
 import { TheaterInfoComponent } from '../../panel-components/theater-info/theater-info.component';
+import { PanelEventInterface } from '../../panel-event-interface';
 @Component({
   selector: 'app-left-slide-panel',
   templateUrl: './left-slide-panel.component.html',
   styleUrls: ['./left-slide-panel.component.css']
 })
-export class LeftSlidePanelComponent implements OnInit {
+export class LeftSlidePanelComponent implements OnInit, PanelEventInterface {
+  closingComplete: Function;
+  startPanelClosedEvent: Function;//call on closing click even
 
 
   private movies: Object[];
@@ -50,8 +53,7 @@ export class LeftSlidePanelComponent implements OnInit {
 
   }
   public closePanel() {
-    // this.hideDetailsView();
-    console.log("close")
+    //TODO merge into panel event handler
     this.detailsView.onClose();
     $("#panel-main-container").animate({ "left": "-100%" }, 200, () => { })
   }
@@ -59,7 +61,5 @@ export class LeftSlidePanelComponent implements OnInit {
     this.detailsView.initView(this.selectedMovie);
 
   }
-  private hideDetailsView() {
-    document.getElementById("movie-details").style.display = "none";
-  }
+
 }

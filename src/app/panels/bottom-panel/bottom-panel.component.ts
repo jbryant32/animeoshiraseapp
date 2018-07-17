@@ -2,24 +2,31 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SharedDataService } from '../../services/shared-data.service';
 import *  as $ from 'jquery';
 import { TheaterInfoComponent } from '../../panel-components/theater-info/theater-info.component';
+import { PanelEventHandlerService } from '../../services/panel-event-handler.service';
+import { PanelEventInterface } from '../../panel-event-interface';
+
 @Component({
   selector: 'app-bottom-panel',
   templateUrl: './bottom-panel.component.html',
   styleUrls: ['./bottom-panel.component.css']
 })
-export class BottomPanelComponent implements OnInit {
-  @ViewChild(TheaterInfoComponent) theaterInfo: TheaterInfoComponent;
+export class BottomPanelComponent implements OnInit, PanelEventInterface {
+  closingComplete: Function;//called when close is finished animating
+  startPanelClosedEvent: Function;
   constructor(private sharedData: SharedDataService) { }
+
 
   ngOnInit() {
   }
-  openPanel() {
-    var theaterUrl = this.sharedData.getSelectedMovie()["theaterUrl"];
-    this.theaterInfo.setTheaterUrl(theaterUrl)
-    $('#bottom-panel-main-container').animate({ top: "10%" }, 200, () => { });
+  //open modal on creation
+  ngAfterViewInit() {
+
+    $('#bottom-panel-main-container').animate({ top: "0%" }, 200, () => { });
   }
+
   closePanel() {
-    this.theaterInfo.closeTheaterUrl();
-    $('#bottom-panel-main-container').animate({ top: "100%" }, 200, () => { });
+    //called closing has started
+    $('#bottom-panel-main-container').animate({ top: "100%" }, 200, () => { this.closingComplete() });
   }
+
 }

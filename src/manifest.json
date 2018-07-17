@@ -25,6 +25,6 @@
     }
   ],
   "display": "standalone",
-  "start_url": "home",
+  "start_url": "main",
   "orientation": "portrait"
 }

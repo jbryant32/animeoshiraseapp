@@ -17,6 +17,11 @@ import { AndroidInstallScreenComponent } from './android-install-screen/android-
 import { BottomPanelComponent } from './panels/bottom-panel/bottom-panel.component';
 import { ComingSoonComponent } from './home-subcomponents/coming-soon/coming-soon.component';
 import { AccountComponent } from './account/account.component';
+import { MainComponent } from './main/main.component';
+import { LoginComponent } from './account-subcomponents/login/login.component';
+import { CreateAccountComponent } from './account-subcomponents/create-account/create-account.component';
+import { PanelEventHandlerComponent } from './services/panel-event-handler/panel-event-handler.component';
+import { PanelEventHandlerService } from './services/panel-event-handler.service';
  
 
 @NgModule({
@@ -29,9 +34,16 @@ import { AccountComponent } from './account/account.component';
     NowInTheatersComponent,
     IphoneInstallScreenComponent,
     AndroidInstallScreenComponent,
-    BottomPanelComponent,
+     BottomPanelComponent,
     ComingSoonComponent,
-    AccountComponent
+    AccountComponent,
+    MainComponent,
+    LoginComponent,
+    CreateAccountComponent,
+    PanelEventHandlerComponent,
+    
+  
+     
   ],
   imports: [
     CommonModule,
@@ -42,13 +54,17 @@ import { AccountComponent } from './account/account.component';
     
     RouterModule.forRoot([
       {
-        path: 'home',
-        component: HomeComponent
+        path: 'main',
+        component: MainComponent
       },
-      {
-        path:'account',
-        component:AccountComponent
-      },
+      // {
+      //   path: 'home',
+      //   component: HomeComponent
+      // },
+      // {
+      //   path:'account',
+      //   component:AccountComponent
+      // },
       {
         path: 'iphoneinstall',
         component: IphoneInstallScreenComponent
@@ -58,10 +74,10 @@ import { AccountComponent } from './account/account.component';
         component: AndroidInstallScreenComponent
       }
 
-
     ])
   ],
-  
+  providers:[PanelEventHandlerService],
+  entryComponents:[BottomPanelComponent, TheaterInfoComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

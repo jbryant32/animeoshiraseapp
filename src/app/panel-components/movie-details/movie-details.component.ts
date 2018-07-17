@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BottomPanelComponent } from '../../panels/bottom-panel/bottom-panel.component';
+import { PanelEventHandlerService } from '../../services/panel-event-handler.service';
+import { TheaterInfoComponent } from '../theater-info/theater-info.component';
 
 @Component({
   selector: 'app-movie-details',
@@ -7,8 +9,7 @@ import { BottomPanelComponent } from '../../panels/bottom-panel/bottom-panel.com
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-  @ViewChild(BottomPanelComponent) bottomPanel: BottomPanelComponent;
-  constructor() { }
+   constructor(private panelEvents:PanelEventHandlerService) { }
 
   ngOnInit() {
   }
@@ -39,14 +40,16 @@ export class MovieDetailsComponent implements OnInit {
   }
   //open iframe with theater url
   openTheaterUrl(e) {
-    this.bottomPanel.openPanel();
+    //this.bottomPanel.openPanel("theater");
+    this.panelEvents.openPanelView(TheaterInfoComponent,BottomPanelComponent);
   }
 
   //take care of any closing actions here 
   //stops youtube video 
   //closes bottom panel if open
   public onClose() {
-    this.bottomPanel.closePanel();
+  
+    if('theater')
     document.getElementById("youtube-trailer")
       .setAttribute("src", "");
   }

@@ -9,9 +9,6 @@ import * as $ from 'jquery';
 })
 export class TheaterInfoComponent implements OnInit {
 
-  movieUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.fathomevents.com/categories/anime'+'?device=mobile')
-  mainContainerStyle = "display:none;";
-  @ViewChild('theaterUrlIframe') theaterIframe;
   constructor(private sharedData: SharedDataService, private sanitizer: DomSanitizer) {
     
   }
@@ -19,13 +16,8 @@ export class TheaterInfoComponent implements OnInit {
   ngOnInit() {
   }
   ngAfterViewInit() {
-    $("#site-loader").html('<object data="" />');
-  }
-  //
-  public setTheaterUrl(url) {
-    if(document.getElementById("site-loader").getElementsByTagName('object')[0])
-    document.getElementById("site-loader").removeChild(document.getElementsByTagName('object')[0])
-
+    var url  = this.sharedData.getSelectedMovie()['theaterUrl']
+    var movieUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url+"?device=mobile");
     $("#site-loader").html(`<object data="${url}" />`)
     $("object").ready(()=>{
       $("object")
@@ -36,13 +28,7 @@ export class TheaterInfoComponent implements OnInit {
     .css("-webkit-overflow-scrolling","touch")
      
   });
-    this.movieUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url+"?device=mobile");
-    this.mainContainerStyle = "display:inherit;";
+  
   }
-  public closeTheaterUrl() {
-    this.movieUrl = this.sanitizer.bypassSecurityTrustResourceUrl('')
-  }
-  public Init() {
-
-  }
+   
 }

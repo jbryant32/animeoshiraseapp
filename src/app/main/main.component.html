@@ -1,0 +1,30 @@
+<div id='home' style="display:inherit;">
+  <app-home></app-home>
+</div>
+<div id='account' style="display:none;">
+  <app-account ></app-account>
+</div>
+
+<!-- Bottom nav area -->
+<div class="phone-navigation-bottm-container">
+  <div class="phone-navigation-row">
+
+    <div id='account' (click)='clickedAccount($event)'>
+      <i class="fas fa-user-circle"></i>
+      <br>
+      <span>Account</span>
+    </div>
+
+    <div id="anime">
+      <i class="fas fa-film"></i>
+      <br>
+      <span>New</span>
+    </div>
+
+    <div id="home" (click)='clickedHome($event)'>
+      <i class="fas fa-home"> </i>
+      <br>
+      <span>Home</span>
+    </div>
+  </div>
+</div>

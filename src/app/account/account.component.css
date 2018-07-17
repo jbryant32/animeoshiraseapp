@@ -1,27 +1,54 @@
-h3{text-align: center;}
-.account-main-container{
-    width: 50%;
-    left: 50%;
-    top: 50%;
-    margin-top: -25%;
-    margin-left: -25%;
+ .top-text-header{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5em;
+    letter-spacing: .5px;
+    padding-top: 5px;
+    color: #464646;
+ }
+ .top-text-header-container{
+    position: relative;
+    width: 100%;    
+    height: 50px;
+    top: 0%;
+    background-color: #eee;
+ }
+ .main-container{
+ width: 100%;
+ height: 100%;
+ }
+ .account-row{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    border-bottom: gray solid thin;
+    background-color: white;
+ }
+ .account-row span{
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: 500;
+ }
+ .account-row svg:nth-of-type(2){
     position: absolute;
-    border: gray solid thin;
-    border-radius: 5px;
-    padding: 15px;
-}
-
-.user-info-container{
-
-}
-.user-info-container  input{
-    margin-top: 20px!important;
-    margin-bottom: 20px!important;
-}
-.user-info-container  label{
-    margin-bottom: 10px!important;
-}
-.user-info-container input[type='submit']{
-    float: right;
-    margin-bottom: 5px!important;
-}
+    top: 50%;
+    margin-top: -7.5px;
+    margin-right: 10px;
+    font-size: 15px;
+    right: 0;
+    color: lightgray;
+ }
+ .account-row svg:nth-of-type(1){
+    margin-right: 10px;
+    color: lightgray;
+ }
+ /* .account-row span::before{
+     font-family: FontAwesome;
+    content: "\f2bd";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+ } */

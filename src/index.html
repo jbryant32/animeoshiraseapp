@@ -27,16 +27,18 @@
   <link rel="shortcut icon" href="/assets/images/icons/favicon-16x16.png" />
   <link rel="stylesheet" href="/assets/css/panel.css" />
   <link rel="stylesheet" href="/src/assets/js/jquery-3.3.1.min.js" />
+  
   <title>Anime Oshirase</title>
   <link rel="manifest" href="/manifest.json">
 
   <base href="/">
   <script>
+    //   console.log( location.pathname);
     // if (/iPhone/i.test(navigator.userAgent)) {
     //   if (window.matchMedia('(display-mode: standalone)').matches) {
     //     {
     //       if (location.pathname === "/iphoneinstall") {
-    //         location.href = "/home";
+    //         location.pathname = "/main";
     //       }
 
     //       console.log("Thank you for installing our app!");
@@ -46,7 +48,7 @@
     //   else {
     //     console.log(location.pathname);
     //     if (location.pathname !== "/iphoneinstall") {
-    //       location.href = "/iphoneinstall";
+    //       location.pathname = "/iphoneinstall";
     //       console.log("not installed")
     //     }
     //   }
@@ -56,7 +58,7 @@
     //     {
     //       console.log("Thank you for installing our app!");
     //       if (location.pathname === "/androidinstall") {
-    //         location.href = "/home";
+    //         location.href = "/main";
     //       }
     //     }
     //   }
@@ -95,7 +97,7 @@
       }
     }
     if (window.innerHeight < window.innerWidth) {
-      if (window.screen.width > 800) {
+      if (window.screen.width > 812) {
         alert("Your Device is not supported")
         window.location.host = "https://google.com"
       }

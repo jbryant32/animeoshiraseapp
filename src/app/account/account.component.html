@@ -1,13 +1,22 @@
  
-<div class="account-main-container">
-  
-  <div class="user-info-container">
-    <form>
-        <label>Email</label>
-        <input class="form-control" type="email" placeholder="Please input user email">
-        <label>Password</label>
-        <input class="form-control" type="password" placeholder="Password">
-        <input type="submit" class="btn btn-primary" value="Sign In">
-    </form>
-  </div>
+<div class="main-container">
+    <div class="top-text-header-container">
+        <div class="top-text-header">
+            <span>Account</span>
+        </div>
+    </div>
+
+    <div class="account-row" (click)='openLogin($event)'>
+        <i class="fas fa-user-circle"></i>
+        <span>Login</span>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    <div class="account-row" (click)='openCreateAccount($event)'>
+        <i class="fas fa-user-circle"></i>
+        <span>Create Account</span>
+        <i class="fas fa-chevron-right"></i>
+    </div>
+
 </div>
+
+  

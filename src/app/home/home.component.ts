@@ -15,12 +15,12 @@ export class HomeComponent implements OnInit {
   public Movies: Object[];
   public Intheaters: Object[];
   public selectedMovie: Object;
- 
+
   @ViewChild(LeftSlidePanelComponent) leftPanel: LeftSlidePanelComponent;
   @ViewChild(NowInTheatersComponent) nowInTheaters: NowInTheatersComponent;
   @ViewChild(ComingSoonComponent) comingSoon: ComingSoonComponent;
   constructor(private httpService: HttpServiceService,
-    private sharedData: SharedDataService,  private router:Router) {
+    private sharedData: SharedDataService, private router: Router) {
 
 
   }
@@ -29,13 +29,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    
+
     this.httpService.Init();
     this.httpService.fetchMoviesCallBack = () => {
       this.Movies = this.sharedData.getMovies();
 
     }
-    document.getElementById('account').addEventListener('click', () => { this.router.navigateByUrl('/account') })
   }
   public populateNowInTheaters(e) {
     this.nowInTheaters.Init(this.leftPanel);//reference to left panel need for users selecting a movie pulls out panel
@@ -53,4 +52,12 @@ export class HomeComponent implements OnInit {
   public closeDetails() {
     this.leftPanel.closePanel();
   }
+  public show() {
+    document.getElementById('home-main-container').style.display = "inherit";
+    
+  }
+  public hide() {
+    document.getElementById('home-main-container').style.display = "hide";
+  }
+
 }
