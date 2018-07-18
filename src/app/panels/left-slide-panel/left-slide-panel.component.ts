@@ -11,6 +11,7 @@ import { PanelEventInterface } from '../../panel-event-interface';
   styleUrls: ['./left-slide-panel.component.css']
 })
 export class LeftSlidePanelComponent implements OnInit, PanelEventInterface {
+
   name: string = "left panel"
   attachedComponentInstance: any;
   panelInstance: any;
@@ -47,9 +48,13 @@ export class LeftSlidePanelComponent implements OnInit, PanelEventInterface {
 
   ngOnInit() {
   }
-  ngAfterViewInit(){
-    $("#panel-main-container").animate({ "left": "0%" }, 200, () => {  })
+  ngAfterViewInit() {
+    $("#panel-main-container").animate({ "left": "0%" }, 200, () => { })
 
+  }
+  //runs if panel already initialized
+  reintialize() {
+    $("#panel-main-container").animate({ "left": "0%" }, 200, () => { })
   }
   public openPanel(show: string) {
     // this.selectedMovie = this.sharedData.getSelectedMovie();
@@ -61,9 +66,9 @@ export class LeftSlidePanelComponent implements OnInit, PanelEventInterface {
   }
   public closePanel() {
     //TODO merge into panel event handler
-   // this.detailsView.onClose();
-  
-    $("#panel-main-container").animate({ "left": "-100%" }, 200, () => {this.closingComplete(this) })
+    // this.detailsView.onClose();
+
+    $("#panel-main-container").animate({ "left": "-100%" }, 200, () => { this.closingComplete(this) })
   }
-  
+
 }

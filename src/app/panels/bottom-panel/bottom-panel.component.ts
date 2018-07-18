@@ -11,6 +11,9 @@ import { PanelEventInterface } from '../../panel-event-interface';
   styleUrls: ['./bottom-panel.component.css']
 })
 export class BottomPanelComponent implements OnInit, PanelEventInterface {
+  reintialize() {
+    throw new Error("Method not implemented.");
+  }
   name: string = "bottom panel";
   attachedComponentInstance: any;
   panelInstance: any;
