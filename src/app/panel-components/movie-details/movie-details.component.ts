@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { BottomPanelComponent } from '../../panels/bottom-panel/bottom-panel.component';
 import { PanelEventHandlerService } from '../../services/panel-event-handler.service';
 import { TheaterInfoComponent } from '../theater-info/theater-info.component';
+import { SharedDataService } from '../../services/shared-data.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -9,12 +10,14 @@ import { TheaterInfoComponent } from '../theater-info/theater-info.component';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-   constructor(private panelEvents:PanelEventHandlerService) { }
+   constructor(private panelEvents:PanelEventHandlerService ,private sharedData:SharedDataService) { }
 
   ngOnInit() {
   }
+  ngAfterViewInit(){this.initView()}
   //call when view needs to be open
-  public initView(selectedMovie: Object) {
+  private initView() {
+    var selectedMovie = this.sharedData.getSelectedMovie();
     var showTimesContainer = document.getElementById("showtimes-container");
     var youTubeIframe = document.getElementById("youtube-trailer");
     var movieSummaryParagraph = document.getElementById("movie-details-summary").getElementsByTagName("p")[0]

@@ -11,6 +11,9 @@ import { PanelEventInterface } from '../../panel-event-interface';
   styleUrls: ['./bottom-panel.component.css']
 })
 export class BottomPanelComponent implements OnInit, PanelEventInterface {
+  name: string = "bottom panel";
+  attachedComponentInstance: any;
+  panelInstance: any;
   closingComplete: Function;//called when close is finished animating
   startPanelClosedEvent: Function;
   constructor(private sharedData: SharedDataService) { }
@@ -21,12 +24,13 @@ export class BottomPanelComponent implements OnInit, PanelEventInterface {
   //open modal on creation
   ngAfterViewInit() {
 
-    $('#bottom-panel-main-container').animate({ top: "0%" }, 200, () => { });
+    console.log("open bottom")
+    $(".bottom-panel-main-container").animate({ "top": "0%" }, 200, () => { })
   }
 
   closePanel() {
     //called closing has started
-    $('#bottom-panel-main-container').animate({ top: "100%" }, 200, () => { this.closingComplete() });
+    $('.bottom-panel-main-container').animate({ top: "100%" }, 200, () => { this.closingComplete(this) });
   }
 
 }

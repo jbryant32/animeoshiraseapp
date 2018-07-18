@@ -1,17 +1,16 @@
-h3{text-align: center;}
+h3{
+    text-align: center;
+    color: #464646;
+    font-weight: 600;
+    margin-top: 15%!important;
+}
 .login-main-container{
     position: absolute;
-    top:100%;
+    width: 100%;
+    max-width: 500px;
+    
 }
 .account-main-container{
-    width: 50%;
-    left: 50%;
-    top: 50%;
-    margin-top: -25%;
-    margin-left: -25%;
-    position: absolute;
-    border: gray solid thin;
-    border-radius: 5px;
     padding: 15px;
 }
 
@@ -20,12 +19,22 @@ h3{text-align: center;}
 }
 .user-info-container  input{
     margin-top: 20px!important;
-    margin-bottom: 20px!important;
+    
 }
 .user-info-container  label{
     margin-bottom: 10px!important;
 }
+.user-info-container input[type='email'], input[type='password']
+{
+    height: 45px;
+
+}
 .user-info-container input[type='submit']{
-    float: right;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 2px;
     margin-bottom: 5px!important;
 }

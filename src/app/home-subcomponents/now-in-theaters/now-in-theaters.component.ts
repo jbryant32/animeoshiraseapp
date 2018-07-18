@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { SharedDataService } from '../../services/shared-data.service';
 import { HomeComponent } from '../../home/home.component';
 import { LeftSlidePanelComponent } from '../../panels/left-slide-panel/left-slide-panel.component';
+import { PanelEventHandlerService } from '../../services/panel-event-handler.service';
+import { MovieDetailsComponent } from '../../panel-components/movie-details/movie-details.component';
 
 @Component({
   selector: 'app-now-in-theaters',
@@ -12,15 +14,13 @@ export class NowInTheatersComponent implements OnInit {
 
   public inTheaters: Object[] = [];
   public noMoviesCurrentlyPlaying: Boolean;
-  
-  public leftPanel: LeftSlidePanelComponent;
-  constructor(private sharedData: SharedDataService) { }
+
+  constructor(private sharedData: SharedDataService, private panelEventHandler: PanelEventHandlerService) { }
 
   ngOnInit() {
   }
 
-  public Init(leftPanel) {
-    this.leftPanel = leftPanel;
+  public Init() {
     this.inTheaters = [];
     this.sharedData.getMovies().forEach((movie) => {
 
@@ -39,12 +39,10 @@ export class NowInTheatersComponent implements OnInit {
     if (this.inTheaters.length === 0) {
       console.log("no movies available")
     }
-    console.log(this.inTheaters);
   }
   public openDetails(e) {
-    console.log(e.target.parentElement.id)
     this.sharedData.setSelectedMovie(e.target.parentElement.id);
-    this.leftPanel.openPanel("details");
+    this.panelEventHandler.openPanelView(MovieDetailsComponent, LeftSlidePanelComponent);
 
   }
 }

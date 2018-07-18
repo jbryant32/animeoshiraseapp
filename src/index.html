@@ -33,43 +33,43 @@
 
   <base href="/">
   <script>
-    //   console.log( location.pathname);
-    // if (/iPhone/i.test(navigator.userAgent)) {
-    //   if (window.matchMedia('(display-mode: standalone)').matches) {
-    //     {
-    //       if (location.pathname === "/iphoneinstall") {
-    //         location.pathname = "/main";
-    //       }
+      console.log( location.pathname);
+    if (/iPhone/i.test(navigator.userAgent)) {
+      if (window.matchMedia('(display-mode: standalone)').matches) {
+        {
+          if (location.pathname === "/iphoneinstall") {
+            location.pathname = "/main";
+          }
 
-    //       console.log("Thank you for installing our app!");
+          console.log("Thank you for installing our app!");
 
-    //     }
-    //   }
-    //   else {
-    //     console.log(location.pathname);
-    //     if (location.pathname !== "/iphoneinstall") {
-    //       location.pathname = "/iphoneinstall";
-    //       console.log("not installed")
-    //     }
-    //   }
-    // }
-    // if (/Android/i.test(navigator.userAgent)) {
-    //   if (window.matchMedia('(display-mode: standalone)').matches) {
-    //     {
-    //       console.log("Thank you for installing our app!");
-    //       if (location.pathname === "/androidinstall") {
-    //         location.href = "/main";
-    //       }
-    //     }
-    //   }
-    //   else {
-    //     console.log(location.pathname);
-    //     if (location.pathname !== "/androidinstall") {
-    //       location.href = "/androidinstall";
-    //       console.log("not installed")
-    //     }
-    //   }
-    // }
+        }
+      }
+      else {
+        console.log(location.pathname);
+        if (location.pathname !== "/iphoneinstall") {
+          location.pathname = "/iphoneinstall";
+          console.log("not installed")
+        }
+      }
+    }
+    if (/Android/i.test(navigator.userAgent)) {
+      if (window.matchMedia('(display-mode: standalone)').matches) {
+        {
+          console.log("Thank you for installing our app!");
+          if (location.pathname === "/androidinstall") {
+            location.href = "/main";
+          }
+        }
+      }
+      else {
+        console.log(location.pathname);
+        if (location.pathname !== "/androidinstall") {
+          location.href = "/androidinstall";
+          console.log("not installed")
+        }
+      }
+    }
   </script>
   <script>
     if (/Android/i.test(navigator.userAgent)) {

@@ -11,6 +11,9 @@ import { PanelEventInterface } from '../../panel-event-interface';
   styleUrls: ['./left-slide-panel.component.css']
 })
 export class LeftSlidePanelComponent implements OnInit, PanelEventInterface {
+  name: string = "left panel"
+  attachedComponentInstance: any;
+  panelInstance: any;
   closingComplete: Function;
   startPanelClosedEvent: Function;//call on closing click even
 
@@ -44,22 +47,23 @@ export class LeftSlidePanelComponent implements OnInit, PanelEventInterface {
 
   ngOnInit() {
   }
+  ngAfterViewInit(){
+    $("#panel-main-container").animate({ "left": "0%" }, 200, () => {  })
+
+  }
   public openPanel(show: string) {
-    this.selectedMovie = this.sharedData.getSelectedMovie();
-    if (show === "details") {
-      console.log("open detail")
-      $("#panel-main-container").animate({ "left": "0%" }, 200, () => { this.showDetailsView(); })
-    }
+    // this.selectedMovie = this.sharedData.getSelectedMovie();
+    // if (show === "details") {
+    //   console.log("open detail")
+    //   $("#panel-main-container").animate({ "left": "0%" }, 200, () => { this.showDetailsView(); })
+    // }
 
   }
   public closePanel() {
     //TODO merge into panel event handler
-    this.detailsView.onClose();
-    $("#panel-main-container").animate({ "left": "-100%" }, 200, () => { })
+   // this.detailsView.onClose();
+  
+    $("#panel-main-container").animate({ "left": "-100%" }, 200, () => {this.closingComplete(this) })
   }
-  private showDetailsView() {
-    this.detailsView.initView(this.selectedMovie);
-
-  }
-
+  
 }

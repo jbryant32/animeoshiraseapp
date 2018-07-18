@@ -1,4 +1,4 @@
-import { BrowserModule,DomSanitizer } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -20,9 +20,8 @@ import { AccountComponent } from './account/account.component';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './account-subcomponents/login/login.component';
 import { CreateAccountComponent } from './account-subcomponents/create-account/create-account.component';
-import { PanelEventHandlerComponent } from './services/panel-event-handler/panel-event-handler.component';
 import { PanelEventHandlerService } from './services/panel-event-handler.service';
- 
+
 
 @NgModule({
   declarations: [
@@ -34,24 +33,21 @@ import { PanelEventHandlerService } from './services/panel-event-handler.service
     NowInTheatersComponent,
     IphoneInstallScreenComponent,
     AndroidInstallScreenComponent,
-     BottomPanelComponent,
+    BottomPanelComponent,
     ComingSoonComponent,
     AccountComponent,
     MainComponent,
     LoginComponent,
     CreateAccountComponent,
-    PanelEventHandlerComponent,
-    
-  
-     
+
   ],
   imports: [
     CommonModule,
     BrowserModule,
     HttpModule,
-    
+
     CustomModulesModule,
-    
+
     RouterModule.forRoot([
       {
         path: 'main',
@@ -68,7 +64,7 @@ import { PanelEventHandlerService } from './services/panel-event-handler.service
       {
         path: 'iphoneinstall',
         component: IphoneInstallScreenComponent
-      },  {
+      }, {
 
         path: 'androidinstall',
         component: AndroidInstallScreenComponent
@@ -76,8 +72,10 @@ import { PanelEventHandlerService } from './services/panel-event-handler.service
 
     ])
   ],
-  providers:[PanelEventHandlerService],
-  entryComponents:[BottomPanelComponent, TheaterInfoComponent],
+  providers: [PanelEventHandlerService],
+  entryComponents: [BottomPanelComponent, LeftSlidePanelComponent,
+    MovieDetailsComponent, TheaterInfoComponent
+    , LoginComponent, CreateAccountComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
